@@ -1,0 +1,25 @@
+{%extends "encyclopedia/layout.html"%}
+
+{% block title%} {{title}}
+{%endblock%}
+
+{% block body %}
+<h1>{{title}}</h1>
+<form type="text" method="post" action=""> {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+         value="{{title}}" name="title">
+        </input>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Edit</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" 
+        name="content">{{content | safe }}</textarea>
+    </div>
+    <input type="submit" value="Submit Entry">
+    </input>
+</form>
+
+
+{% endblock %}
